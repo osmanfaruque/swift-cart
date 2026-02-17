@@ -13,17 +13,15 @@
 
 ### 2) What is the use of the map() function in JavaScript? How is it different from forEach()?
 
-`map()` হলো একটা array method যেটা একটা array এর প্রতিটা element এর উপর একটা function চালায় এবং **নতুন একটা array return** করে। মূল array পরিবর্তন হয় না।
+`map()` হলো একটা array নিয়ম যেটা একটা array এর প্রতিটা element এর উপর একটা ফাংশন চালায় এবং **নতুন একটা array return** করে। মূল array পরিবর্তন হয় না।
 
 ### 3) What is the difference between == and ===?
 
-`==` হলো **loose equality** বা abstract equality। এটা দুইটা value compare করার সময় **type conversion** (coercion) করে। মানে দুইটা value এর type আলাদা হলেও, JS চেষ্টা করে এদের একই type এ নিয়ে আসতে, তারপর compare করে।
+`==` হলো  এটা দুইটা value compare করার সময় Type সেম করে দেয় এরপর দুই দিক এর মান কম্পেয়ার করে
 
 ### 4) What is the significance of async/await in fetching API data?
 
-API থেকে ডাটা আনা একটা **asynchronous** কাজ — মানে ডাটা আসতে সময় লাগে, আর JavaScript তখনও বাকি code চালাতে থাকে। আগে এই কাজ `.then().catch()` chain দিয়ে করতে হতো যেটা কিছুটা জটিল দেখায়।
-
-`async`/`await` এটাকে অনেক সহজ ও পড়তে সুবিধা (readable) করে দেয়। `async` keyword একটা function কে asynchronous বানায়, আর `await` keyword JavaScript কে বলে "এই Promise resolve না হওয়া পর্যন্ত wait করো"।
+API থেকে ডাটা আসতে সময় লাগে, আর JavaScript তখনও বাকি code চালাতে থাকে। `async`/`await` এটাকে অনেক সহজ ও পড়তে সুবিধা (readable) করে দেয়। `async` keyword একটা function কে asynchronous বানায়, আর `await` keyword JavaScript কে বলে "এই Promise resolve না হওয়া পর্যন্ত wait করো"।
 
 ### 5) Explain the concept of Scope in JavaScript (Global, Function, Block).
 
