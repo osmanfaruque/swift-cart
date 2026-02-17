@@ -173,7 +173,7 @@
 
       <!-- Mobile menu -->
       <nav
-        class="mobile-nav absolute left-150 right-0 top-full z-50 md:hidden border-t border-base-200 bg-base-100 px-4 pb-4 shadow-lg rounded-b-xl"
+        class="mobile-nav absolute left-3/4 right-0 top-full z-50 md:hidden border-t border-base-200 bg-base-100 px-4 pb-4 shadow-lg rounded-b-xl -translate-x-1/2"
         id="mobile-nav"
       >
         <button
@@ -211,9 +211,76 @@
 
     <!--Whole Body Content-->
     <main>
-      <!-- hero -->
-      <section id="Hero" class="bg-red-400">
-        <h2>Welcome to Swift Cart</h2>
+      <!-- Hero -->
+      <section
+        id="home"
+        class="relative flex min-h-[85vh] items-center justify-center overflow-hidden"
+      >
+        <!-- Background -->
+        <div class="absolute inset-0">
+          <img
+            src="/swift-cart/assets/logo-images/hero-bg.jpg"
+            alt="Shopping"
+            class="h-full w-full object-cover"
+          />
+          <div
+            class="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/30"
+          ></div>
+        </div>
+
+        <!-- Content -->
+        <div
+          class="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center"
+        >
+          <span
+            class="inline-block rounded-full bg-primary/20 px-4 py-1.5 text-sm font-medium text-white mb-6 backdrop-blur-sm border border-white/10"
+          >
+            ✨ New Collection 2026
+          </span>
+          <h1
+            class="text-4xl sm:text-5xl md:text-7xl font-bold tracking-tight text-white mb-6 leading-tight"
+          >
+            Best Collection
+            <br />
+            <span class="text-amber-400">For You</span>
+          </h1>
+          <p
+            class="mx-auto max-w-xl text-lg text-white/70 mb-8 leading-relaxed"
+          >
+            Discover premium products at unbeatable prices. Fast delivery,
+            secure checkout, and 24/7 customer support.
+          </p>
+          <div class="flex flex-wrap justify-center gap-4">
+            <a
+              href="/swift-cart/all-products.html"
+              class="btn btn-primary btn-lg gap-2 rounded-full px-8 text-base"
+            >
+              Shop Now
+              <!-- ArrowRight icon -->
+              <svg
+                class="h-4 w-4"
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              >
+                <path d="M5 12h14" />
+                <path d="m12 5 7 7-7 7" />
+              </svg>
+            </a>
+            <button
+              class="btn btn-outline btn-lg rounded-full px-8 text-base border-white/30 text-white hover:bg-white/10 hover:text-white hover:border-white/50"
+              data-nav="#why-us"
+            >
+              Learn More
+            </button>
+          </div>
+        </div>
       </section>
 
       <!-- Why Choose Us -->
@@ -370,13 +437,67 @@
       </section>
 
       <!-- Trending Products -->
-      <section id="trending" class="bg-blue-300">
-        <h2>trending products</h2>
+      <section id="trending" class="py-20 bg-base-200/50">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <h2 class="text-center text-3xl font-bold tracking-tight mb-2">
+            Top <span class="text-primary">Rated</span>
+          </h2>
+          <p class="text-center text-base-content/60 mb-12 max-w-lg mx-auto">
+            Our customers' favorite picks with the highest ratings.
+          </p>
+
+          <!-- Product Grid (populated by trending.js) -->
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8" id="trending-grid">
+            <!-- Skeleton loaders (shown while fetching) -->
+            <div class="rounded-xl border border-base-200 bg-base-100 overflow-hidden animate-pulse skeleton-card">
+              <div class="aspect-[4/3] bg-base-200"></div>
+              <div class="p-6 space-y-3">
+                <div class="h-5 w-3/4 bg-base-200 rounded"></div>
+                <div class="h-4 w-1/2 bg-base-200 rounded"></div>
+                <div class="h-10 w-full bg-base-200 rounded"></div>
+              </div>
+            </div>
+            <div class="rounded-xl border border-base-200 bg-base-100 overflow-hidden animate-pulse skeleton-card">
+              <div class="aspect-[4/3] bg-base-200"></div>
+              <div class="p-6 space-y-3">
+                <div class="h-5 w-3/4 bg-base-200 rounded"></div>
+                <div class="h-4 w-1/2 bg-base-200 rounded"></div>
+                <div class="h-10 w-full bg-base-200 rounded"></div>
+              </div>
+            </div>
+            <div class="rounded-xl border border-base-200 bg-base-100 overflow-hidden animate-pulse skeleton-card">
+              <div class="aspect-[4/3] bg-base-200"></div>
+              <div class="p-6 space-y-3">
+                <div class="h-5 w-3/4 bg-base-200 rounded"></div>
+                <div class="h-4 w-1/2 bg-base-200 rounded"></div>
+                <div class="h-10 w-full bg-base-200 rounded"></div>
+              </div>
+            </div>
+          </div>
+        </div>
       </section>
 
-      <!-- Contact Us -->
-      <section id="contact" class="bg-yellow-300">
-        <h2>Contact Us</h2>
+      <!-- Contact / Newsletter -->
+      <section id="contact" class="py-20 bg-primary text-primary-content">
+        <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
+          <h2 class="text-3xl font-bold tracking-tight mb-3">Stay in the Loop</h2>
+          <p class="text-primary-content/70 mb-8 max-w-md mx-auto">
+            Subscribe to our newsletter for exclusive deals, new arrivals, and insider-only discounts.
+          </p>
+          <form id="subscribe-form" class="mx-auto flex max-w-md gap-2">
+            <input
+              type="email"
+              placeholder="Enter your email"
+              required
+              class="input input-bordered flex-1 bg-primary-content/10 border-primary-content/20 text-primary-content placeholder:text-primary-content/50 focus:outline-none focus:ring-2 focus:ring-primary-content/40"
+            />
+            <button type="submit" class="btn btn-secondary gap-2 shrink-0">
+              <!-- Send icon -->
+              <svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z"/><path d="m21.854 2.147-10.94 10.939"/></svg>
+              Subscribe
+            </button>
+          </form>
+        </div>
       </section>
     </main>
 
@@ -569,9 +690,34 @@
         </button>
       </div>
     </aside>
+    <!-- Cart Item Template (hidden) -->
+    <template id="cart-item-template">
+      <div class="flex gap-3 rounded-lg border border-base-200 bg-base-100 p-3 cart-item" data-id="">
+        <div class="h-16 w-16 flex-shrink-0 rounded-md bg-white border border-base-200 p-1 flex items-center justify-center">
+          <img src="" alt="" class="h-full w-full object-contain cart-item-img" />
+        </div>
+        <div class="flex flex-1 flex-col gap-1 min-w-0">
+          <p class="text-sm font-medium truncate cart-item-title"></p>
+          <p class="text-sm font-bold text-primary cart-item-price"></p>
+          <div class="flex items-center gap-2 mt-auto">
+            <button class="btn btn-outline btn-square btn-xs cart-qty-minus" aria-label="Decrease">
+              <svg class="w-3 h-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/></svg>
+            </button>
+            <span class="text-sm font-medium w-6 text-center cart-item-qty">1</span>
+            <button class="btn btn-outline btn-square btn-xs cart-qty-plus" aria-label="Increase">
+              <svg class="w-3 h-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5v14"/></svg>
+            </button>
+            <button class="btn btn-ghost btn-square btn-xs ml-auto text-error cart-item-remove" aria-label="Remove">
+              <svg class="w-3.5 h-3.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"/><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </template>
 
     <!-- Scripts -->
     <script src="/swift-cart/assets/scripts/navbar.js"></script>
     <script src="/swift-cart/assets/scripts/cart.js"></script>
+    <script src="/swift-cart/assets/scripts/trending.js"></script>
   </body>
 </html>
