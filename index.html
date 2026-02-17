@@ -1,65 +1,262 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Tailwind CSS + DaisyUI -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@5"
+      rel="stylesheet"
+      type="text/css"
+    />
+
+    <!-- Theme inssert -->
+    <link rel="stylesheet" href="/swift-cart/assets/design/index.css" />
     <title>Swift Cart</title>
-</head>
+  </head>
 
-<body>
-    <!-- Nav bar with links to Home, Why us, Products, Trending, and Contact Us sections -->
-    <nav>
+  <body class="font-sans bg-base-100 text-base-content">
+    <!-- ======= Navbar ======= -->
+    <header
+      class="sticky top-0 z-40 w-full border-b border-base-200 bg-base-100/80 backdrop-blur-md"
+    >
+      <div
+        class="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8"
+      >
+        <!-- Logo -->
+        <a
+          href="/swift-cart/index.html"
+          class="flex items-center gap-2 text-xl font-bold no-underline"
+          style="font-family: var(--font-display)"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="lucide lucide-shopping-cart-icon lucide-shopping-cart"
+          >
+            <circle cx="8" cy="21" r="1" />
+            <circle cx="19" cy="21" r="1" />
+            <path
+              d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"
+            />
+          </svg>
+          <span>Swift<span class="text-primary">Cart</span></span>
+        </a>
 
-        <!-- left side: Swift Cart logo -->
-        <div >
-            <img src="logo.png" alt="Swift Cart Logo" width="100">
-            <h1>Swift Cart</h1>
+        <!-- Desktop Nav -->
+        <nav class="hidden md:flex items-center gap-1">
+          <button
+            class="btn btn-ghost btn-sm text-sm font-medium text-base-content/60 hover:bg-base-200 hover:text-base-content rounded-md"
+            data-nav="#home"
+          >
+            Home
+          </button>
+          <button
+            class="btn btn-ghost btn-sm text-sm font-medium text-base-content/60 hover:bg-base-200 hover:text-base-content rounded-md"
+            data-nav="#why-us"
+          >
+            Why Us
+          </button>
+          <button
+            class="btn btn-ghost btn-sm text-sm font-medium text-base-content/60 hover:bg-base-200 hover:text-base-content rounded-md"
+            data-nav="/swift-cart/all-products.html"
+          >
+            Products
+          </button>
+          <button
+            class="btn btn-ghost btn-sm text-sm font-medium text-base-content/60 hover:bg-base-200 hover:text-base-content rounded-md"
+            data-nav="#trending"
+          >
+            Trending
+          </button>
+          <button
+            class="btn btn-ghost btn-sm text-sm font-medium text-base-content/60 hover:bg-base-200 hover:text-base-content rounded-md"
+            data-nav="#contact"
+          >
+            Contact Us
+          </button>
+        </nav>
+
+        <!-- Actions: Cart + Mobile Toggle -->
+        <div class="flex items-center gap-2">
+          <!-- Cart Button -->
+          <button
+            class="btn btn-outline btn-square btn-sm relative"
+            id="cart-btn"
+            aria-label="Open cart"
+          >
+            <svg
+              class="w-5 h-5"
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <circle cx="8" cy="21" r="1" />
+              <circle cx="19" cy="21" r="1" />
+              <path
+                d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"
+              />
+            </svg>
+            <span
+              class="badge badge-primary badge-sm absolute -top-2 -right-2 text-[10px] hidden"
+              id="cart-badge"
+              >0</span
+            >
+          </button>
+
+          <!-- Mobile Menu Toggle -->
+          <button
+            class="btn btn-ghost btn-square btn-sm md:hidden"
+            id="mobile-toggle"
+            aria-label="Toggle menu"
+          >
+            <svg
+              id="icon-menu"
+              class="w-5 h-5"
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <line x1="4" x2="20" y1="12" y2="12" />
+              <line x1="4" x2="20" y1="6" y2="6" />
+              <line x1="4" x2="20" y1="18" y2="18" />
+            </svg>
+            <svg
+              id="icon-close"
+              class="w-5 h-5"
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              style="display: none"
+            >
+              <path d="M18 6 6 18" />
+              <path d="m6 6 12 12" />
+            </svg>
+          </button>
         </div>
+      </div>
 
-        <!-- middle: Home, Why us, Products, Trending, Contact Us -->
-        <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#why-us">Why Us</a></li>
-            <li><a href="/swift-cart/all-products.html">Products</a></li>
-            <li><a href="#trending">Trending</a></li>
-            <li><a href="#contact-us">Contact Us</a></li>
-        </ul>
-
-        <!-- right side: Cart icon -->
-        <div>
-            <img src="cart-icon.png" alt="Cart Icon" width="30">
-        </div>
-    </nav>
+      <!-- Mobile menu -->
+      <nav
+        class="mobile-nav absolute left-150 right-0 top-full z-50 md:hidden border-t border-base-200 bg-base-100 px-4 pb-4 shadow-lg rounded-b-xl"
+        id="mobile-nav"
+      >
+        <button
+          class="block w-full text-left py-3 text-sm font-medium text-base-content/60 hover:text-primary transition-colors cursor-pointer border-b border-base-200"
+          data-nav="#home"
+        >
+          Home
+        </button>
+        <button
+          class="block w-full text-left py-3 text-sm font-medium text-base-content/60 hover:text-primary transition-colors cursor-pointer border-b border-base-200"
+          data-nav="#why-us"
+        >
+          Why Us
+        </button>
+        <button
+          class="block w-full text-left py-3 text-sm font-medium text-base-content/60 hover:text-primary transition-colors cursor-pointer border-b border-base-200"
+          data-nav="/swift-cart/all-products.html"
+        >
+          Products
+        </button>
+        <button
+          class="block w-full text-left py-3 text-sm font-medium text-base-content/60 hover:text-primary transition-colors cursor-pointer border-b border-base-200"
+          data-nav="#trending"
+        >
+          Trending
+        </button>
+        <button
+          class="block w-full text-left py-3 text-sm font-medium text-base-content/60 hover:text-primary transition-colors cursor-pointer"
+          data-nav="#contact"
+        >
+          Contact Us
+        </button>
+      </nav>
+    </header>
 
     <!--Whole Body Content-->
     <main>
-        <!-- hero -->
-        <section id="Hero">
-            <h2>Welcome to Swift Cart</h2>
-        </section>
+      <!-- hero -->
+      <section id="Hero" class="bg-red-400">
+        <h2>Welcome to Swift Cart</h2>
+      </section>
 
-        <!-- Why Choose Us -->
-        <section id="why-us">
-            <h2>Why Choose Swift Cart</h2>
-        </section>
+      <!-- Why Choose Us -->
+      <section id="why-us" class="bg-green-300">
+        <h2>Why Choose Swift Cart</h2>
+      </section>
 
-        <!-- Trending Products -->
-        <section id="trending">
-            <h2>trending products</h2>
-        </section>
+      <!-- Trending Products -->
+      <section id="trending" class="bg-blue-300">
+        <h2>trending products</h2>
+      </section>
 
-        <!-- Contact Us -->
-        <section id="contact">
-            <h2>Contact Us</h2>
-        </section>
-
+      <!-- Contact Us -->
+      <section id="contact" class="bg-yellow-300">
+        <h2>Contact Us</h2>
+      </section>
     </main>
 
     <!--Footer with quick links-->
-    <footer>
+    <footer class="bg-slate-500 flex justify-around items-start px-20 py-10">
+      <!-- Logo div -->
+      <div>
+        <div>
+          <img src="logo.png" alt="Swift Cart Logo" width="50" />
+          <h3>Swift Cart</h3>
+        </div>
+        <p>Your one-stop shop for all your shopping needs.</p>
+      </div>
 
+      <!-- quick links Div -->
+      <div>
+        <h3>Quick Links</h3>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#why-us">Why Us</a></li>
+          <li><a href="/swift-cart/all-products.html">Products</a></li>
+          <li><a href="#trending">Trending</a></li>
+          <li><a href="#contact-us">Contact Us</a></li>
+        </ul>
+      </div>
     </footer>
-</body>
 
+    <!-- Scripts -->
+    <script src="/swift-cart/assets/scripts/navbar.js"></script>
+  </body>
 </html>

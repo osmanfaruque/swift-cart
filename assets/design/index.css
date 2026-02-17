@@ -1,0 +1,14 @@
+/* Theme*/
+:root {
+  --primary: #5b42d7;
+  --accent: #f99e1f;
+  --font-display: "Space Grotesk", sans-serif;
+}
+
+/* Mobile nav: hidden by default, shown when .open is added via JS */
+.mobile-nav {
+  display: none;
+}
+.mobile-nav.open {
+  display: block;
+}
