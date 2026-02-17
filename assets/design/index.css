@@ -12,3 +12,5 @@
 .mobile-nav.open {
   display: block;
 }
+
+/* Cart overlay: hidden by default via Tailwind 'hidden' class, toggled by JS */
