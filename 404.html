@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Tailwind CSS + DaisyUI -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@5"
+      rel="stylesheet"
+      type="text/css"
+    />
+
+    <!-- Theme -->
+    <link rel="stylesheet" href="/swift-cart/assets/design/index.css" />
+    <title>404 – Page Not Found | Swift Cart</title>
+  </head>
+
+  <body class="font-sans bg-base-200 text-base-content">
+    <div class="flex min-h-screen items-center justify-center">
+      <div class="text-center">
+        <h1 class="mb-4 text-6xl font-bold">404</h1>
+        <p class="mb-4 text-xl text-base-content/60">Oops! Page not found</p>
+        <p class="mb-6 text-sm text-base-content/40" id="attempted-path"></p>
+        <a
+          href="/swift-cart/index.html"
+          class="btn btn-primary"
+        >
+          Return to Home
+        </a>
+      </div>
+    </div>
+
+    <script>
+      // Log the attempted path
+      var path = window.location.pathname;
+      console.error("404 Error: User attempted to access non-existent route:", path);
+      document.getElementById("attempted-path").textContent =
+        "The page \"" + path + "\" does not exist.";
+    </script>
+  </body>
+</html>
