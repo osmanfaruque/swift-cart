@@ -233,26 +233,39 @@
     </main>
 
     <!--Footer with quick links-->
-    <footer class="bg-slate-500 flex justify-around items-start px-20 py-10">
-      <!-- Logo div -->
-      <div>
-        <div>
-          <img src="logo.png" alt="Swift Cart Logo" width="50" />
-          <h3>Swift Cart</h3>
-        </div>
-        <p>Your one-stop shop for all your shopping needs.</p>
-      </div>
+    <footer class="border-t border-base-200 bg-base-100 py-12">
+      <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <!-- Logo div -->
+          <div class="md:col-span-2">
+            <div class="flex items-center gap-2 text-xl font-bold mb-3" style="font-family: var(--font-display)">
+              <svg class="w-5 h-5 text-primary" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/>
+                <path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/>
+              </svg>
+              Swift<span class="text-primary">Cart</span>
+            </div>
+            <p class="text-sm text-base-content/60 max-w-xs leading-relaxed">
+              Your one-stop shop for all your shopping needs.
+            </p>
+          </div>
 
-      <!-- quick links Div -->
-      <div>
-        <h3>Quick Links</h3>
-        <ul>
-          <li><a href="#home">Home</a></li>
-          <li><a href="#why-us">Why Us</a></li>
-          <li><a href="/swift-cart/all-products.html">Products</a></li>
-          <li><a href="#trending">Trending</a></li>
-          <li><a href="#contact-us">Contact Us</a></li>
-        </ul>
+          <!-- quick links Div -->
+          <div>
+            <h4 class="font-semibold mb-3">Quick Links</h4>
+            <ul class="space-y-2 text-sm text-base-content/60">
+              <li><a href="#home" class="hover:text-primary transition-colors">Home</a></li>
+              <li><a href="#why-us" class="hover:text-primary transition-colors">Why Us</a></li>
+              <li><a href="/swift-cart/all-products.html" class="hover:text-primary transition-colors">Products</a></li>
+              <li><a href="#trending" class="hover:text-primary transition-colors">Trending</a></li>
+              <li><a href="#contact" class="hover:text-primary transition-colors">Contact Us</a></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="mt-10 border-t border-base-200 pt-6 text-center text-sm text-base-content/60">
+          &copy; 2026 SwiftCart. All rights reserved.
+        </div>
       </div>
     </footer>
 
@@ -303,31 +316,6 @@
         <button class="btn btn-ghost btn-sm w-full text-error" id="cart-clear">Clear Cart</button>
       </div>
     </aside>
-
-    <!-- Cart Item Template (hidden) -->
-    <template id="cart-item-template">
-      <div class="flex gap-3 rounded-lg border border-base-200 bg-base-100 p-3 cart-item" data-id="">
-        <div class="h-16 w-16 flex-shrink-0 rounded-md bg-white border border-base-200 p-1 flex items-center justify-center">
-          <img src="" alt="" class="h-full w-full object-contain cart-item-img" />
-        </div>
-        <div class="flex flex-1 flex-col gap-1 min-w-0">
-          <p class="text-sm font-medium truncate cart-item-title"></p>
-          <p class="text-sm font-bold text-primary cart-item-price"></p>
-          <div class="flex items-center gap-2 mt-auto">
-            <button class="btn btn-outline btn-square btn-xs cart-qty-minus" aria-label="Decrease">
-              <svg class="w-3 h-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/></svg>
-            </button>
-            <span class="text-sm font-medium w-6 text-center cart-item-qty">1</span>
-            <button class="btn btn-outline btn-square btn-xs cart-qty-plus" aria-label="Increase">
-              <svg class="w-3 h-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M12 5v14"/></svg>
-            </button>
-            <button class="btn btn-ghost btn-square btn-xs ml-auto text-error cart-item-remove" aria-label="Remove">
-              <svg class="w-3.5 h-3.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18"/><path d="M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"/><path d="M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/></svg>
-            </button>
-          </div>
-        </div>
-      </div>
-    </template>
 
     <!-- Scripts -->
     <script src="/swift-cart/assets/scripts/navbar.js"></script>
